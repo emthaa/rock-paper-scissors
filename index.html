@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>RPS</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-</head>
-
-<body>
-  <script src="script.js"></script>
-
-</body>
-
+  <body>
+    <div id="top">ROCK PAPER SCISSORS</div>
+    <div id="score"></div>
+    <div id="announce"></div>
+    <div id="announceWinner"></div>
+    <div id="playButtonContainer">
+      <input type="image" id="rockButton" src="images/rock.png" alt="Rock" />
+      <input type="image" id="paperButton" src="images/paper.png" alt="Paper" />
+      <input
+        type="image"
+        id="scissorsButton"
+        src="images/scissors.png"
+        alt="Scissors"
+      />
+    </div>
+    <div id="footer"><button id="resetButton">Reset</button></div>
+  </body>
 </html>
