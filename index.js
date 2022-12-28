@@ -24,44 +24,55 @@ computerScore.textContent = ComputerScore;
 
 //finish the rest of buttons lol and make it look pretty bud
 rockButton.addEventListener('click', function (e) {
+  
   const computerPicked = getComputerChoice();
   let result = playRound('Rock',computerPicked);
   score(result); //adds 1 to score
-  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   let print = printGameResult("Rock",computerPicked,result); //take all game info and announce result
   playerScore.textContent = PlayerScore; //updates score
   computerScore.textContent = ComputerScore;
-  announce.textContent = print;
+  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   announceWinner.textContent = firstFive;
+  announce.textContent = print;
+  
 });
 paperButton.addEventListener('click', function (e) {
+  
   const computerPicked = getComputerChoice();
   let result = playRound('Paper',computerPicked);
   score(result);
-  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   let print = printGameResult("Paper",computerPicked,result);
-  announce.textContent = print;
   playerScore.textContent = PlayerScore;
   computerScore.textContent = ComputerScore;
+  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   announceWinner.textContent = firstFive;
+  announce.textContent = print;
+
 });
 scissorsButton.addEventListener('click', function (e) {
   const computerPicked = getComputerChoice();
   let result = playRound('Scissors',computerPicked);
   score(result);
-  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   let print = printGameResult("Scissors",computerPicked,result);
-  announce.textContent = print;
   playerScore.textContent = PlayerScore;
   computerScore.textContent = ComputerScore;
+  let firstFive = announceWinnerFive(PlayerScore,ComputerScore);
   announceWinner.textContent = firstFive;
+  announce.textContent = print;
+
 });
 
 resetButton.addEventListener('click', function(e){
+  document.getElementById("rockButton").disabled = false;
+  document.getElementById("paperButton").disabled = false;
+  document.getElementById("scissorsButton").disabled = false;
+  announceWinner.textContent = "";
+  announce.textContent ="";
   PlayerScore = 0;
   ComputerScore = 0;
   playerScore.textContent = PlayerScore;
   computerScore.textContent = ComputerScore;
+  
   return PlayerScore,ComputerScore;
 })
 
@@ -81,7 +92,7 @@ function getComputerChoice() {
   }
 
 }
-
+//put the check of 5 into while loop, if one has five, then break,
 function playRound(userSelection, computerSelection) { 
     console.log(computerSelection);
     if (userSelection == computerSelection) {
@@ -129,11 +140,20 @@ function printGameResult(playerInput,computerInput,game_result){
 
 function announceWinnerFive(p,c){
   if (p>5 || c>5){
-    return
+    document.getElementById("rockButton").disabled = false;
+    document.getElementById("paperButton").disabled = false;
+    document.getElementById("scissorsButton").disabled = false;
+    return;
   }else if (p == 5){
-    return "You got to five first!"
+    document.getElementById("rockButton").disabled = true;
+    document.getElementById("paperButton").disabled = true;
+    document.getElementById("scissorsButton").disabled = true;
+    return "You got to five first!";
   }else if (c == 5){
-    return "The computer got to five first!"
+    document.getElementById("rockButton").disabled = true;
+    document.getElementById("paperButton").disabled = true;
+    document.getElementById("scissorsButton").disabled = true;
+    return "The computer got to five first!";
   }
 }
 
